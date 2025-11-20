@@ -43,7 +43,7 @@ export default function Home() {
 
         {/* Titlul principal */}
         <h1 className="mb-6 animate-fade-in-up text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl md:text-6xl">
-          Suntem în <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Mentenanță.</span>
+          Suntem în <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Mentenanță.</span>
         </h1>
 
         {/* Text descriptiv */}
