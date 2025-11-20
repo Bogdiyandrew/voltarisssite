@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.svg",
   },
+  // START: Secțiunea de Verificare Google Search Console adăugată
+  verification: {
+    google: '6OJVya6y49keeCUSwUR4-U8tg3RoGCErDCOsqXq04DI',
+  },
+  // END: Secțiunea de Verificare Google Search Console
 };
 
 export default function RootLayout({
