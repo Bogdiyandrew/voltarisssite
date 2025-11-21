@@ -81,7 +81,7 @@ function Hero() {
 
       {/* ASSETUL FLOTANT - Tabloul Electric */}
       <Image
-        src="/images/hero-section.png"
+        src="/images/untitled.png"
         alt="Tablou electric industrial decupat, floating asset"
         width={1200}
         height={1500}
@@ -192,7 +192,7 @@ function Hero() {
   );
 }
 
-// --- 2. SERVICES SECTION (Fara flickering) ---
+// --- 2. SERVICES SECTION (CU IMAGINI REALE) ---
 function ServicesTeaser() {
   return (
     <section className="py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
@@ -202,7 +202,7 @@ function ServicesTeaser() {
           <FadeIn>
             <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-8 text-zinc-900 dark:text-white leading-tight">
               Două divizii.<br />
-              <span className="text-zinc-400">O singura calitate.</span>
+              <span className="text-zinc-400">O singură calitate.</span>
             </h2>
             <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed">
               Fie că ai nevoie de un tablou de automatizare complex livrat oriunde în țară,
@@ -227,9 +227,18 @@ function ServicesTeaser() {
           <div className="grid gap-6">
             <FadeIn delay={0.2} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
-              <div className="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
-                <Cpu className="w-7 h-7 text-blue-600" />
+
+              {/* NOU: Panel Builder - Macro Foto Cablaj */}
+              <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                <Image
+                  src="/images/1hero.png" // <--- PATH NOU
+                  alt="Macro foto cablaj tablou electric"
+                  fill
+                  sizes="56px"
+                  className="object-cover" // Asigură că imaginea umple containerul
+                />
               </div>
+
               <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-blue-600 transition-colors relative z-10">Panel Builder</h3>
               <p className="font-bold text-zinc-500 leading-relaxed relative z-10">
                 Producție de tablouri electrice în atelier propriu. Automatizări industriale, distribuție forță și comandă.
@@ -238,9 +247,18 @@ function ServicesTeaser() {
 
             <FadeIn delay={0.4} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
-              <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
-                <Zap className="w-7 h-7 text-orange-600" />
+
+              {/* NOU: Instalații Argeș - Foto Tubulatură Curată */}
+              <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                <Image
+                  src="/images/2hero.png" // <--- PATH NOU
+                  alt="Instalație electrică curată pe șantier"
+                  fill
+                  sizes="56px"
+                  className="object-cover"
+                />
               </div>
+
               <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-orange-600 transition-colors relative z-10">Instalatii Arges</h3>
               <p className="font-bold text-zinc-500 leading-relaxed relative z-10">
                 Execuție instalații electrice civile și industriale în Pitești și împrejurimi. Branșamente, reparații și mentenanță.
@@ -261,7 +279,7 @@ function PortfolioTeaser() {
       <div className="container px-6 mx-auto text-center">
         <FadeIn className="max-w-3xl mx-auto">
           <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-8 dark:text-white">
-            Lucrări care vorbesc de la sine
+            Lucrari care vorbesc de la sine
           </h2>
           <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-12">
             Nu vorbim mult. Lăsăm calitatea execuției să te convingă.
