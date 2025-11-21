@@ -20,6 +20,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Previne scroll-ul când meniul mobil este deschis
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -53,12 +54,13 @@ export default function Navbar() {
                 src="/logo.svg"
                 alt="Voltariss Logo"
                 fill
-                className="object-contain" // Asigură că logo-ul se vede complet fără să fie deformat
+                className="object-contain"
                 priority
               />
             </div>
 
             <span
+              // Logo text foloseste Orbitron Black
               className={`font-orbitron font-black text-xl tracking-tight transition-colors ${isScrolled || pathname !== "/"
                 ? "text-zinc-900 dark:text-white"
                 : "text-zinc-900 dark:text-white"
@@ -77,7 +79,8 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive
+                    // AICI: font-medium a devenit font-bold font-inter
+                    className={`relative px-5 py-2 rounded-full text-sm font-bold font-inter transition-all duration-300 ${isActive
                       ? "text-blue-600 dark:text-blue-400 bg-white dark:bg-zinc-800 shadow-sm"
                       : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50"
                       }`}
@@ -90,7 +93,8 @@ export default function Navbar() {
 
             <a
               href="tel:0720000000"
-              className="flex items-center gap-2 px-5 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl text-sm font-bold hover:scale-105 hover:shadow-lg hover:shadow-zinc-900/20 dark:hover:shadow-white/20 transition-all"
+              // AICI: Am adăugat font-inter
+              className="flex items-center gap-2 px-5 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl text-sm font-bold font-inter hover:scale-105 hover:shadow-lg hover:shadow-zinc-900/20 dark:hover:shadow-white/20 transition-all"
             >
               <Phone className="w-4 h-4" />
               <span>Sună Acum</span>
@@ -128,7 +132,8 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`flex items-center justify-between p-4 rounded-2xl text-xl font-bold border transition-all ${pathname === link.href
+                    // AICI: Am adăugat font-inter
+                    className={`flex items-center justify-between p-4 rounded-2xl text-xl font-bold font-inter border transition-colors ${pathname === link.href
                       ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-600"
                       : "border-zinc-100 dark:border-zinc-900 text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900"
                       }`}
@@ -150,7 +155,8 @@ export default function Navbar() {
               >
                 <a
                   href="tel:0700000000"
-                  className="flex w-full items-center justify-center gap-3 px-8 py-5 bg-blue-600 text-white rounded-2xl text-lg font-bold shadow-xl shadow-blue-600/30"
+                  // AICI: Am adăugat font-inter
+                  className="flex w-full items-center justify-center gap-3 px-8 py-5 bg-blue-600 text-white rounded-2xl text-lg font-bold font-inter shadow-xl shadow-blue-600/30"
                 >
                   <Phone className="w-5 h-5" />
                   Sună Echipa

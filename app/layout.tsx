@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import Footer from "@/components/Footer";
-import { orbitron } from "@/app/ui/fonts";
+import { orbitron, inter } from "@/app/ui/fonts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

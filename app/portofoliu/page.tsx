@@ -40,13 +40,13 @@ export default function PortofoliuPage() {
   return (
     <main className="pt-32 pb-20 bg-zinc-50 dark:bg-zinc-950 min-h-screen">
       <div className="container mx-auto px-6">
-        
+
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-zinc-900 dark:text-white mb-6">
-            Portofoliu Lucrări
+          <h1 className="font-orbitron font-black text-4xl md:text-6xl text-zinc-900 dark:text-white mb-6">
+            Portofoliu Lucrari
           </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-            Calitatea execuției este cartea noastră de vizită. <br/>
+          <p className="font-inter font-bold text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+            Calitatea execuției este cartea noastră de vizită. <br />
             Mai jos sunt câteva dintre proiectele recente.
           </p>
         </div>
@@ -66,10 +66,10 @@ export default function PortofoliuPage() {
               <div className="h-64 w-full bg-zinc-100 dark:bg-zinc-950 flex items-center justify-center relative overflow-hidden">
                 {/* Pattern de fundal tehnic */}
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                
+
                 {/* Iconita Centrala */}
                 <div className="scale-100 group-hover:scale-110 transition-transform duration-500 p-6 bg-white dark:bg-zinc-900 rounded-full shadow-2xl border border-zinc-100 dark:border-zinc-800 z-10">
-                   {project.icon}
+                  {project.icon}
                 </div>
 
                 {/* Badge "Coming Soon" discret */}
@@ -100,8 +100,8 @@ export default function PortofoliuPage() {
           <p className="text-zinc-400 mb-8">
             Avem o arhivă extinsă de fotografii tehnice. Contactează-ne și îți trimitem exemple specifice pe WhatsApp.
           </p>
-          <a 
-            href="/contact" 
+          <a
+            href="/contact"
             className="inline-flex px-8 py-3 bg-white text-zinc-900 font-bold rounded-lg hover:bg-zinc-200 transition-colors"
           >
             Contactează-ne

@@ -37,7 +37,7 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="w-full h-full flex flex-col items-center justify-center text-center p-8 bg-green-500/10 border border-green-500/20 rounded-2xl"
@@ -53,11 +53,11 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 relative">
+    <form onSubmit={handleSubmit} className="font-inter font-bold flex flex-col gap-4 relative">
       <div className="relative">
         <input
           id="name"
-          type="text" 
+          type="text"
           name="name"
           placeholder="Numele tău"
           required
@@ -68,7 +68,7 @@ export default function ContactForm() {
       <div className="relative">
         <input
           id="phone"
-          type="tel" 
+          type="tel"
           name="phone"
           placeholder="Număr de telefon (Obligatoriu)"
           required
@@ -81,7 +81,7 @@ export default function ContactForm() {
         <textarea
           id="message"
           name="message"
-          placeholder="Descrie scurt problema..." 
+          placeholder="Descrie scurt problema..."
           rows={4}
           required
           className="w-full bg-zinc-900 border border-zinc-700 p-4 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all text-zinc-100 placeholder:text-zinc-500 resize-none"
@@ -90,19 +90,19 @@ export default function ContactForm() {
 
       {status === "error" && (
         <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 p-3 rounded-lg">
-           <AlertCircle className="w-4 h-4"/> Eroare. Verifică conexiunea sau sună-ne direct.
+          <AlertCircle className="w-4 h-4" /> Eroare. Verifică conexiunea sau sună-ne direct.
         </div>
       )}
 
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         disabled={status === "loading"}
-        className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-700 text-white font-bold py-4 rounded-lg transition-all active:scale-[0.98]"
+        className="font-inter font-black group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-700 text-white py-4 rounded-lg transition-all active:scale-[0.98] cursor-pointer"
       >
         {status === "loading" ? "Se trimite..." : (
-            <>
-                Trimite Cererea <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform"/>
-            </>
+          <>
+            Trimite Cererea <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </>
         )}
       </button>
     </form>
