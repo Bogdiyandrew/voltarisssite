@@ -26,3 +26,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* --- CUSTOM SCROLLBAR --- */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #71717a #09090b;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+  /* zinc-950 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #71717a;
+  /* zinc-500 - Mai vizibil */
+  border-radius: 6px;
+  border: 3px solid #09090b;
+  /* Creates padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+  /* blue-500 - Aprins la hover */
+}
