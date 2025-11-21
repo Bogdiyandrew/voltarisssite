@@ -9,11 +9,9 @@ import {
   Cpu
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image"; // <--- Importul necesar pentru imaginea din Hero
-import Footer from "@/components/Footer"; // Rămâne importat, dar nu se randează
+import Image from "next/image"; // Necesită Image pentru Hero și Colaj
 
-// --- COMPONENTE UI INTERNE ---
-
+// --- COMPONENTE UI INTERNE (FADEIN) ---
 const FadeIn = ({
   children,
   delay = 0,
@@ -26,7 +24,7 @@ const FadeIn = ({
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }} // Fix pentru flickering pe scroll
+    viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.8, delay, ease: "easeOut" }}
     className={className}
   >
@@ -34,7 +32,7 @@ const FadeIn = ({
   </motion.div>
 );
 
-// --- 1. HERO SECTION (Final, Ultra-Optimized, cu Image Asset) ---
+// --- 1. HERO SECTION (CU IMAGINE FLOTANTĂ) ---
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -75,18 +73,17 @@ function Hero() {
         style={style}
       />
 
-      {/* Ambient Glows (Static on Mobile) */}
+      {/* Ambient Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
 
       {/* ASSETUL FLOTANT - Tabloul Electric */}
       <Image
-        src="/images/untitled.png"
+        src="/images/Untitled.png"
         alt="Tablou electric industrial decupat, floating asset"
         width={1200}
         height={1500}
         priority
-        // Dimensiuni finale: 600px pe LG, 800px pe XL
         className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 opacity-70 pointer-events-none z-0 w-[600px] h-auto xl:w-[800px]"
       />
 
@@ -94,7 +91,7 @@ function Hero() {
         style={{ y: yText, opacity: opacityText }}
         className="z-10 container px-6 mx-auto text-center relative"
       >
-        {/* Badge - Font Inter Bold */}
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -192,7 +189,7 @@ function Hero() {
   );
 }
 
-// --- 2. SERVICES SECTION (CU IMAGINI REALE) ---
+// --- 2. SERVICES SECTION ---
 function ServicesTeaser() {
   return (
     <section className="py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
@@ -228,14 +225,14 @@ function ServicesTeaser() {
             <FadeIn delay={0.2} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
 
-              {/* NOU: Panel Builder - Macro Foto Cablaj */}
+              {/* Panel Builder - Macro Foto Cablaj */}
               <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Image
-                  src="/images/1hero.png" // <--- PATH NOU
+                  src="/images/1hero.png" // Imaginea 1 (Cablaj)
                   alt="Macro foto cablaj tablou electric"
                   fill
                   sizes="56px"
-                  className="object-cover" // Asigură că imaginea umple containerul
+                  className="object-cover"
                 />
               </div>
 
@@ -248,10 +245,10 @@ function ServicesTeaser() {
             <FadeIn delay={0.4} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
 
-              {/* NOU: Instalații Argeș - Foto Tubulatură Curată */}
+              {/* Instalații Argeș - Foto Tubulatură Curată */}
               <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Image
-                  src="/images/2hero.png" // <--- PATH NOU
+                  src="/images/2hero.png" // Imaginea 2 (Șantier)
                   alt="Instalație electrică curată pe șantier"
                   fill
                   sizes="56px"
@@ -272,30 +269,68 @@ function ServicesTeaser() {
   );
 }
 
-// --- 3. PORTFOLIO SECTION ---
+// --- 3. PORTFOLIO SECTION (FINAL: CU COLAJ IMAGINI) ---
 function PortfolioTeaser() {
   return (
     <section className="py-32 bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
-      <div className="container px-6 mx-auto text-center">
-        <FadeIn className="max-w-3xl mx-auto">
-          <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-8 dark:text-white">
-            Lucrari care vorbesc de la sine
-          </h2>
-          <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-12">
-            Nu vorbim mult. Lăsăm calitatea execuției să te convingă.
-            Aruncă o privire în interiorul tablourilor noastre și vezi standardul Voltariss.
-          </p>
+      <div className="container px-6 mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          <Link href="/portofoliu">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="font-black inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl  text-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all shadow-lg hover:shadow-xl text-zinc-900 dark:text-white cursor-pointer"
-            >
-              Vezi Galeria Foto <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </Link>
-        </FadeIn>
+          {/* COLOANA 1: TEXT ȘI CTA (Stânga pe Desktop) */}
+          <FadeIn className="lg:text-left text-center">
+            <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-8 dark:text-white">
+              Lucrări care vorbesc de la sine
+            </h2>
+            <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-12">
+              Nu vorbim mult. Lăsăm calitatea execuției să te convingă.
+              Aruncă o privire în interiorul tablourilor noastre și vezi standardul Voltariss.
+            </p>
+
+            <Link href="/portofoliu">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="font-black inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all shadow-lg hover:shadow-xl text-zinc-900 dark:text-white cursor-pointer"
+              >
+                Vezi Galeria Foto <ArrowRight className="w-5 h-5" />
+              </motion.button>
+            </Link>
+          </FadeIn>
+
+          {/* COLOANA 2: COLAJ IMAGINI (Dreapta pe Desktop) */}
+          <FadeIn delay={0.4} className="hidden lg:flex justify-center items-center relative h-full min-h-[400px]">
+            <div className="relative w-full max-w-lg h-full">
+
+              {/* Imaginea 1: Tablou (Baza) */}
+              <Image
+                src="/images/1hero.png"
+                width={400}
+                height={250}
+                alt="Tablou electric industrial"
+                className="absolute top-0 left-0 w-3/4 rounded-xl shadow-2xl shadow-zinc-900/40 object-cover"
+              />
+
+              {/* Imaginea 2: Șantier (Suprapusă dreapta jos) */}
+              <Image
+                src="/images/2hero.png"
+                width={300}
+                height={200}
+                alt="Instalație curată pe șantier"
+                className="absolute top-1/4 right-0 w-1/2 rounded-xl shadow-2xl shadow-zinc-900/40 translate-x-1/4 object-cover border-4 border-zinc-50 dark:border-zinc-950"
+              />
+
+              {/* Imaginea 3: Detaliu Smart (Suprapusă stânga jos) */}
+              <Image
+                src="/images/hero-section.png"
+                width={200}
+                height={150}
+                alt="Detalii priză smart"
+                className="absolute bottom-0 left-1/4 w-1/3 rounded-xl shadow-2xl shadow-zinc-900/40 -translate-x-1/2 translate-y-1/4 object-cover border-4 border-zinc-50 dark:border-zinc-950"
+              />
+
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
