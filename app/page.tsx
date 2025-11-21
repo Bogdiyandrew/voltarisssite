@@ -33,11 +33,11 @@ const FadeIn = ({
   </motion.div>
 );
 
-// --- 1. HERO SECTION OPTIMIZAT (Fara lag pe mobil) ---
+// --- 1. HERO SECTION ULTRA-RAPID ---
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Configurare Spotlight (Mouse tracking)
+  // Configurare Spotlight (Doar pentru Desktop)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
@@ -57,7 +57,6 @@ function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // Reducem complexitatea parallax-ului
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
@@ -67,72 +66,68 @@ function Hero() {
       onMouseMove={handleMouseMove}
       className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-zinc-950"
     >
-      {/* STRAT 1: Grid Static (Vizibil mereu, foarte performant) */}
+      {/* STRAT 1: Grid Static */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]"></div>
 
-      {/* STRAT 2: Spotlight Grid (ASCUNS PE MOBIL - hidden md:block) */}
-      {/* Asta rezolva lag-ul. Se randeaza doar pe ecrane medii si mari */}
+      {/* STRAT 2: Spotlight (DOAR PE DESKTOP - hidden md:block) */}
       <motion.div
         className="hidden md:block absolute inset-0 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-size-[40px_40px] opacity-20"
         style={style}
       />
 
-      {/* STRAT 3: Ambient Glows (Statice pe mobil pentru viteza) */}
-      <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/20 rounded-full blur-[80px] md:blur-[128px] mix-blend-screen pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[80px] md:blur-[128px] mix-blend-screen pointer-events-none" />
+      {/* STRAT 3: Ambient Glows (Statice pe mobil, FARA BLUR EXAGERAT) */}
+      {/* Am scos "animate-pulse-slow" de pe mobil si am redus blur-ul */}
+      <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
 
       <motion.div
         style={{ y: yText, opacity: opacityText }}
         className="z-10 container px-6 mx-auto text-center relative"
       >
-        {/* BADGE */}
+        {/* BADGE - Fara backdrop-blur pe mobil */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.1 }}
           className="flex justify-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 py-1.5 px-3 rounded-full border border-zinc-800 bg-zinc-900/50 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 py-1.5 px-3 rounded-full border border-zinc-800 bg-zinc-900/90 md:backdrop-blur-md">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
             <span className="text-xs font-medium text-zinc-300 tracking-wide uppercase">
-              Disponibili pentru lucrări în Argeș
+              Disponibili în Argeș
             </span>
           </div>
         </motion.div>
 
-        {/* TITLU PRINCIPAL */}
+        {/* TITLU OPTIMIZAT (Fara masca overflow-hidden care agata) */}
         <div className="mb-8 flex flex-col items-center leading-none">
-          <div className="overflow-hidden pb-2">
-            <motion.h1
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white"
-            >
-              Inginerie Electrică
-            </motion.h1>
-          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }} // Doar fade si miscare mica
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white pb-2"
+          >
+            Inginerie Electrică
+          </motion.h1>
 
-          <div className="overflow-hidden pt-2 pb-2">
-            <motion.h1
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }} // Am scazut putin delay-ul sa para mai rapid pe mobil
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-blue-400 bg-[length:200%_auto] animate-gradient"
-            >
-              De Precizie.
-            </motion.h1>
-          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-blue-400 bg-[length:200%_auto] animate-gradient pb-2"
+          >
+            De Precizie.
+          </motion.h1>
         </div>
 
         {/* SUBTITLU */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
           className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Producție de tablouri electrice industriale & instalații civile sigure.
@@ -143,14 +138,14 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0 }}
+          transition={{ delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Link href="/contact" className="w-full sm:w-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-950 font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20 hover:shadow-blue-500/20 transition-shadow"
+              className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-950 font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20 transition-shadow"
             >
               Cere o Ofertă <ArrowRight className="w-4 h-4" />
             </motion.button>
@@ -168,11 +163,11 @@ function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* SCROLL MOUSE ICON - Simplificat */}
+      {/* SCROLL INDICATOR */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-50"
       >
         <div className="w-6 h-10 border-2 border-zinc-600 rounded-full p-1">
@@ -187,7 +182,7 @@ function Hero() {
   );
 }
 
-// --- 2. RESTUL PAGINII ---
+// --- 2. RESTUL PAGINII (RAMANE LA FEL DE BUN) ---
 
 function ServicesTeaser() {
   return (
