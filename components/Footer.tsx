@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import Image from "next/image";
+import Image from "next/image"; // Păstrat pentru logo-ul principal
 
 export default function Footer() {
     return (
@@ -54,39 +54,38 @@ export default function Footer() {
 
                 </div>
 
-                {/* --- SECTIUNEA ANPC, SAL & SOL --- */}
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pb-8 border-t border-zinc-900 pt-8">
-                    {/* Logourile trebuie să fie descărcate și puse în public/images/anpc-sal.png, etc. */}
+                ---
 
-                    {/* LOGO SAL (Soluționarea Alternativă a Litigiilor) */}
+                {/* --- SECTIUNEA ANPC, SAL & SOL (CU SVG) --- */}
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pb-8 border-t border-zinc-900 pt-8">
+
+                    {/* LOGO SAL (Soluționarea Alternativă a Litigiilor) - SVG */}
                     <a
                         href="http://www.anpc.ro/categorie/557/sal"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="opacity-80 hover:opacity-100 transition-opacity"
                     >
-                        <Image
-                            src="/images/anpc-sal-logo.png" // Presupunem că descarci imaginea și o pui aici
+                        {/* Codul SVG integrat direct din sursa publică */}
+                        <img
+                            src="https://etamade-com.github.io/anpc-sal-sol-logo/anpc-sal.svg"
                             alt="Logo SAL - Soluționarea Alternativă a Litigiilor"
-                            width={200}
-                            height={50}
-                            className="h-10 w-auto"
+                            style={{ height: '40px' }} // Tailwind 'h-10' (40px)
                         />
                     </a>
 
-                    {/* LOGO SOL (Soluționarea Online a Litigiilor) */}
+                    {/* LOGO SOL (Soluționarea Online a Litigiilor) - SVG */}
                     <a
                         href="https://webgate.ec.europa.eu/odr/main/index.cfm?event=main.home.show&lng=RO"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="opacity-80 hover:opacity-100 transition-opacity"
                     >
-                        <Image
-                            src="/images/anpc-sol-logo.png" // Presupunem că descarci imaginea și o pui aici
+                        {/* Codul SVG integrat direct din sursa publică */}
+                        <img
+                            src="https://etamade-com.github.io/anpc-sal-sol-logo/anpc-sol.svg"
                             alt="Logo SOL - Soluționarea Online a Litigiilor"
-                            width={200}
-                            height={50}
-                            className="h-10 w-auto"
+                            style={{ height: '40px' }} // Tailwind 'h-10' (40px)
                         />
                     </a>
                 </div>
