@@ -79,12 +79,13 @@ function Hero() {
 
       {/* ASSETUL FLOTANT - Tabloul Electric */}
       <Image
-        src="/images/Untitled.png"
-        alt="Tablou electric industrial decupat, floating asset"
-        width={1200}
-        height={1500}
+        src="/images/herro.jpg" // <--- Path-ul imaginii tale
+        alt="Fundal industrial high-tech"
+        fill // Face imaginea să umple tot containerul părinte (inset-0)
         priority
-        className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 opacity-70 pointer-events-none z-0 w-[600px] h-auto xl:w-[800px]"
+        sizes="100vw"
+        // Opacitate și blur/întunecare pentru a păstra textul lizibil
+        className="object-cover opacity-25 brightness-75 transition-opacity duration-1000"
       />
 
       <motion.div
