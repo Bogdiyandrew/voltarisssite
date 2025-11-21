@@ -107,7 +107,7 @@ function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
             <span className="font-bold text-xs text-zinc-300 tracking-wide uppercase">
-              Disponibili în Argeș
+              Disponibili în Romania
             </span>
           </div>
         </motion.div>
