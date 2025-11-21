@@ -9,7 +9,8 @@ import {
   Cpu
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image"; // <--- Asigură-te că ai acest import
+import Image from "next/image"; // <--- Importul necesar pentru imaginea din Hero
+import Footer from "@/components/Footer"; // Rămâne importat, dar nu se randează
 
 // --- COMPONENTE UI INTERNE ---
 
@@ -25,7 +26,7 @@ const FadeIn = ({
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }}
+    viewport={{ once: true, amount: 0.2 }} // Fix pentru flickering pe scroll
     transition={{ duration: 0.8, delay, ease: "easeOut" }}
     className={className}
   >
@@ -33,7 +34,7 @@ const FadeIn = ({
   </motion.div>
 );
 
-// --- 1. HERO SECTION (CU FONTURI CURATE ȘI IMAGINE) ---
+// --- 1. HERO SECTION (Final, Ultra-Optimized, cu Image Asset) ---
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -74,25 +75,26 @@ function Hero() {
         style={style}
       />
 
-      {/* Ambient Glows */}
+      {/* Ambient Glows (Static on Mobile) */}
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
 
       {/* ASSETUL FLOTANT - Tabloul Electric */}
       <Image
-        src="/images/hero-section.png" // Asigură-te că imaginea e aici
+        src="/images/hero-section.png"
         alt="Tablou electric industrial decupat, floating asset"
         width={1200}
         height={1500}
         priority
-        className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 opacity-70 pointer-events-none z-0 w-[800px] h-auto xl:w-[1000px]"
+        // Dimensiuni finale: 600px pe LG, 800px pe XL
+        className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 opacity-70 pointer-events-none z-0 w-[600px] h-auto xl:w-[800px]"
       />
 
       <motion.div
         style={{ y: yText, opacity: opacityText }}
         className="z-10 container px-6 mx-auto text-center relative"
       >
-        {/* Badge */}
+        {/* Badge - Font Inter Bold */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,14 +106,13 @@ function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            {/* Font Inter Bold pe badge (text mic, dar vizibil) */}
             <span className="font-bold text-xs text-zinc-300 tracking-wide uppercase">
-              Disponibili In Romania
+              Disponibili în Argeș
             </span>
           </div>
         </motion.div>
 
-        {/* Titlu - Font Orbitron Black/Bold */}
+        {/* Titlu - Font Orbitron Black */}
         <div className="mb-8 flex flex-col items-center leading-none">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -119,7 +120,7 @@ function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter text-white pb-2"
           >
-            INGINERIE ELECTRICA
+            INGINERIE ELECTRICĂ
           </motion.h1>
 
           <motion.h1
@@ -132,17 +133,18 @@ function Hero() {
           </motion.h1>
         </div>
 
-        {/* Subtitlu - Font Inter (moștenit de la body) */}
+        {/* Subtitlu - Font Inter (moștenit) */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Producție de tablouri electrice industriale,instalații civile sigure,instalatii hale industriale & automatizari.
+          Producție de tablouri electrice industriale & instalații civile sigure.
+          Standarde germane, execuție românească.
         </motion.p>
 
-        {/* Butoane - Font Inter Bold/Black */}
+        {/* Butoane - Font Inter Black */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -190,7 +192,7 @@ function Hero() {
   );
 }
 
-// --- 2. SERVICES SECTION ---
+// --- 2. SERVICES SECTION (Fara flickering) ---
 function ServicesTeaser() {
   return (
     <section className="py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
