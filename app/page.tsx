@@ -106,7 +106,7 @@ function Hero() {
             </span>
             {/* Font Inter Bold pe badge (text mic, dar vizibil) */}
             <span className="font-bold text-xs text-zinc-300 tracking-wide uppercase">
-              Disponibili în Argeș
+              Disponibili In Romania
             </span>
           </div>
         </motion.div>
@@ -139,8 +139,7 @@ function Hero() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Producție de tablouri electrice industriale & instalații civile sigure.
-          Standarde germane, execuție românească.
+          Producție de tablouri electrice industriale,instalații civile sigure,instalatii hale industriale & automatizari.
         </motion.p>
 
         {/* Butoane - Font Inter Bold/Black */}

@@ -42,7 +42,7 @@ export default function ServiciiPage() {
               </p>
             </div>
             <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800">
-              <h3 className="font-inter font-bold text-xl mb-3 dark:text-white">Tablouri Fotovoltaice</h3>
+              <h3 className="font-inter font-bold text-xl mb-3 dark:text-white">Tablouri</h3>
               <p className="font-inter font-bold text-zinc-600 dark:text-zinc-400">
                 Cutii AC/DC complet echipate pentru sisteme solare, cu protecții la supratensiune și separatoare de sarcină.
               </p>
