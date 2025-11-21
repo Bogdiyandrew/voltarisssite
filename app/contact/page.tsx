@@ -33,7 +33,7 @@ export default function ContactPage() {
                   <div>
                     <p className="font-inter font-black text-sm text-zinc-500">Telefon</p>
                     <a href="tel:0723563640" className="text-lg font-bold text-zinc-900 dark:text-white hover:text-blue-600">
-                      0723563640
+                      0723 563 640
                     </a>
                   </div>
                 </div>
