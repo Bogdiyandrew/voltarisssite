@@ -9,7 +9,7 @@ import {
   Cpu
 } from "lucide-react";
 import Link from "next/link";
-import Footer from "@/components/Footer";
+import Image from "next/image"; // <--- Asigură-te că ai acest import
 
 // --- COMPONENTE UI INTERNE ---
 
@@ -33,7 +33,7 @@ const FadeIn = ({
   </motion.div>
 );
 
-// --- 1. HERO SECTION ---
+// --- 1. HERO SECTION (CU FONTURI CURATE ȘI IMAGINE) ---
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -78,6 +78,16 @@ function Hero() {
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
 
+      {/* ASSETUL FLOTANT - Tabloul Electric */}
+      <Image
+        src="/images/hero-section.png" // Asigură-te că imaginea e aici
+        alt="Tablou electric industrial decupat, floating asset"
+        width={1200}
+        height={1500}
+        priority
+        className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 opacity-70 pointer-events-none z-0 w-[800px] h-auto xl:w-[1000px]"
+      />
+
       <motion.div
         style={{ y: yText, opacity: opacityText }}
         className="z-10 container px-6 mx-auto text-center relative"
@@ -94,19 +104,20 @@ function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            <span className="font-inter font-bold text-xs font-medium text-zinc-300 tracking-wide uppercase">
+            {/* Font Inter Bold pe badge (text mic, dar vizibil) */}
+            <span className="font-bold text-xs text-zinc-300 tracking-wide uppercase">
               Disponibili în Argeș
             </span>
           </div>
         </motion.div>
 
-        {/* Titlu */}
+        {/* Titlu - Font Orbitron Black/Bold */}
         <div className="mb-8 flex flex-col items-center leading-none">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-orbitron font-bold text-5xl md:text-7xl lg:text-8xl tracking-tighter text-white pb-2"
+            className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter text-white pb-2"
           >
             INGINERIE ELECTRICA
           </motion.h1>
@@ -115,24 +126,24 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl  tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-blue-400 bg-[length:200%_auto] animate-gradient pb-2"
+            className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-blue-400 bg-[length:200%_auto] animate-gradient pb-2"
           >
             DE PRECIZIE
           </motion.h1>
         </div>
 
-        {/* Subtitlu */}
+        {/* Subtitlu - Font Inter (moștenit de la body) */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="font-inter font-black text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Producție de tablouri electrice industriale & instalații civile sigure.
           Standarde germane, execuție românească.
         </motion.p>
 
-        {/* Butoane */}
+        {/* Butoane - Font Inter Bold/Black */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,9 +154,9 @@ function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="font-inter w-full sm:w-auto px-8 py-4 bg-white text-zinc-950 font-black rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20 transition-shadow cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-950 font-black rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20 transition-shadow cursor-pointer"
             >
-              Cere o ofertă <ArrowRight className="w-4 h-4" />
+              Cere o Ofertă <ArrowRight className="w-4 h-4" />
             </motion.button>
           </Link>
 
@@ -153,7 +164,7 @@ function Hero() {
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.95 }}
-              className="font-inter font-black w-full sm:w-auto px-8 py-4 bg-transparent border border-zinc-800 text-white rounded-xl transition-colors cursor-pointer"
+              className="font-black w-full sm:w-auto px-8 py-4 bg-transparent border border-zinc-800 text-white rounded-xl transition-colors cursor-pointer"
             >
               Vezi Serviciile
             </motion.button>
@@ -189,10 +200,10 @@ function ServicesTeaser() {
 
           <FadeIn>
             <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-8 text-zinc-900 dark:text-white leading-tight">
-              Doua divizii.<br />
+              Două divizii.<br />
               <span className="text-zinc-400">O singură calitate.</span>
             </h2>
-            <p className="font-inter font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed">
+            <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed">
               Fie că ai nevoie de un tablou de automatizare complex livrat oriunde în țară,
               sau de o echipă de electricieni autorizați pentru șantierul tău din Pitești,
               Voltariss livrează excelență.
@@ -200,15 +211,15 @@ function ServicesTeaser() {
 
             <div className="space-y-4 mb-10">
               {['Execuție conform normativelor I7', 'Componente premium (Schneider, Eaton, ABB)', 'Garanție extinsă pentru manoperă'].map((item, i) => (
-                <div key={i} className="font-inter font-bold flex items-center gap-3 text-zinc-700 dark:text-zinc-300">
+                <div key={i} className="flex items-center gap-3 text-zinc-700 dark:text-zinc-300 font-bold">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
             </div>
 
-            <Link href="/servicii" className="font-inter font-black inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:gap-4 transition-all group">
-              Vezi toate detaliile <ArrowRight className="font-inter w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Link href="/servicii" className="font-black inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:gap-4 transition-all group">
+              Vezi toate detaliile <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeIn>
 
@@ -219,7 +230,7 @@ function ServicesTeaser() {
                 <Cpu className="w-7 h-7 text-blue-600" />
               </div>
               <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-blue-600 transition-colors relative z-10">Panel Builder</h3>
-              <p className="font-inter font-bold text-zinc-500 leading-relaxed relative z-10">
+              <p className="font-bold text-zinc-500 leading-relaxed relative z-10">
                 Producție de tablouri electrice în atelier propriu. Automatizări industriale, distribuție forță și comandă.
               </p>
             </FadeIn>
@@ -230,7 +241,7 @@ function ServicesTeaser() {
                 <Zap className="w-7 h-7 text-orange-600" />
               </div>
               <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-orange-600 transition-colors relative z-10">Instalatii Arges</h3>
-              <p className="font-inter font-bold text-zinc-500 leading-relaxed relative z-10">
+              <p className="font-bold text-zinc-500 leading-relaxed relative z-10">
                 Execuție instalații electrice civile și industriale în Pitești și împrejurimi. Branșamente, reparații și mentenanță.
               </p>
             </FadeIn>
@@ -249,9 +260,9 @@ function PortfolioTeaser() {
       <div className="container px-6 mx-auto text-center">
         <FadeIn className="max-w-3xl mx-auto">
           <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-8 dark:text-white">
-            Lucrari care vorbesc de la sine
+            Lucrări care vorbesc de la sine
           </h2>
-          <p className="font-inter font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-12">
+          <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-12">
             Nu vorbim mult. Lăsăm calitatea execuției să te convingă.
             Aruncă o privire în interiorul tablourilor noastre și vezi standardul Voltariss.
           </p>
@@ -260,7 +271,7 @@ function PortfolioTeaser() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="font-inter font-black inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl  text-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all shadow-lg hover:shadow-xl text-zinc-900 dark:text-white cursor-pointer"
+              className="font-black inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl  text-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all shadow-lg hover:shadow-xl text-zinc-900 dark:text-white cursor-pointer"
             >
               Vezi Galeria Foto <ArrowRight className="w-5 h-5" />
             </motion.button>
