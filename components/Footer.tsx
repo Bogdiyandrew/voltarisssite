@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import Image from "next/image"; // <--- IMPORT NECESAR
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -12,7 +12,6 @@ export default function Footer() {
                     <div className="col-span-1 lg:col-span-2">
                         {/* LOGO SECTION */}
                         <div className="flex items-center gap-3 mb-6">
-                            {/* AICI ESTE LOGO-UL INLOCUIT */}
                             <div className="relative w-10 h-10">
                                 <Image
                                     src="/logo.svg"
@@ -55,6 +54,44 @@ export default function Footer() {
 
                 </div>
 
+                {/* --- SECTIUNEA ANPC, SAL & SOL --- */}
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pb-8 border-t border-zinc-900 pt-8">
+                    {/* Logourile trebuie să fie descărcate și puse în public/images/anpc-sal.png, etc. */}
+
+                    {/* LOGO SAL (Soluționarea Alternativă a Litigiilor) */}
+                    <a
+                        href="http://www.anpc.ro/categorie/557/sal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="opacity-80 hover:opacity-100 transition-opacity"
+                    >
+                        <Image
+                            src="/images/anpc-sal-logo.png" // Presupunem că descarci imaginea și o pui aici
+                            alt="Logo SAL - Soluționarea Alternativă a Litigiilor"
+                            width={200}
+                            height={50}
+                            className="h-10 w-auto"
+                        />
+                    </a>
+
+                    {/* LOGO SOL (Soluționarea Online a Litigiilor) */}
+                    <a
+                        href="https://webgate.ec.europa.eu/odr/main/index.cfm?event=main.home.show&lng=RO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="opacity-80 hover:opacity-100 transition-opacity"
+                    >
+                        <Image
+                            src="/images/anpc-sol-logo.png" // Presupunem că descarci imaginea și o pui aici
+                            alt="Logo SOL - Soluționarea Online a Litigiilor"
+                            width={200}
+                            height={50}
+                            className="h-10 w-auto"
+                        />
+                    </a>
+                </div>
+
+                {/* COPYRIGHT/TERMENI */}
                 <div className="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-zinc-600 text-sm">
                     <p>© {new Date().getFullYear()} Voltariss. Toate drepturile rezervate.</p>
                     <div className="flex gap-6">
