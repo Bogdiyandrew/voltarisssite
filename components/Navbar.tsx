@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image"; // <--- IMPORT NOU
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,7 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -43,14 +42,12 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || pathname !== "/"
-            ? "bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/50 dark:border-zinc-800/50 py-4 shadow-sm"
-            : "bg-transparent py-6"
+          ? "bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/50 dark:border-zinc-800/50 py-4 shadow-sm"
+          : "bg-transparent py-6"
           }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          {/* LOGO */}
           <Link href="/" className="flex items-center gap-2 z-50 group">
-            {/* AICI AM INLOCUIT DIV-UL CU ICONITA */}
             <div className="relative w-10 h-10 group-hover:scale-105 transition-transform">
               <Image
                 src="/logo.svg"
@@ -62,9 +59,9 @@ export default function Navbar() {
             </div>
 
             <span
-              className={`font-bold text-xl tracking-tight transition-colors ${isScrolled || pathname !== "/"
-                  ? "text-zinc-900 dark:text-white"
-                  : "text-zinc-900 dark:text-white"
+              className={`font-orbitron font-black text-xl tracking-tight transition-colors ${isScrolled || pathname !== "/"
+                ? "text-zinc-900 dark:text-white"
+                : "text-zinc-900 dark:text-white"
                 }`}
             >
               Voltariss
@@ -81,8 +78,8 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive
-                        ? "text-blue-600 dark:text-blue-400 bg-white dark:bg-zinc-800 shadow-sm"
-                        : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50"
+                      ? "text-blue-600 dark:text-blue-400 bg-white dark:bg-zinc-800 shadow-sm"
+                      : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50"
                       }`}
                   >
                     {link.name}
@@ -132,8 +129,8 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center justify-between p-4 rounded-2xl text-xl font-bold border transition-all ${pathname === link.href
-                        ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-600"
-                        : "border-zinc-100 dark:border-zinc-900 text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900"
+                      ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-600"
+                      : "border-zinc-100 dark:border-zinc-900 text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900"
                       }`}
                   >
                     {link.name}

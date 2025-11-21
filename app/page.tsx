@@ -6,10 +6,10 @@ import {
   ArrowRight,
   CheckCircle2,
   Zap,
-  Cpu,
-  Phone
+  Cpu
 } from "lucide-react";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 // --- COMPONENTE UI INTERNE ---
 
@@ -23,9 +23,9 @@ const FadeIn = ({
   className?: string
 }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }} // Pornim de la 30px mai jos
+    initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }} // Se animează O SINGURĂ DATĂ, când e 20% vizibil
+    viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.8, delay, ease: "easeOut" }}
     className={className}
   >
@@ -33,11 +33,11 @@ const FadeIn = ({
   </motion.div>
 );
 
-// --- 1. HERO SECTION (Versiunea Ultra-Rapidă Mobile) ---
+// --- 1. HERO SECTION ---
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Configurare Spotlight (Mouse tracking - DOAR DESKTOP)
+  // Configurare Spotlight (DOAR DESKTOP)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
@@ -66,16 +66,15 @@ function Hero() {
       onMouseMove={handleMouseMove}
       className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-zinc-950"
     >
-      {/* STRAT 1: Grid Static */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]"></div>
 
-      {/* STRAT 2: Spotlight (ASCUNS PE MOBIL - hidden md:block) */}
+      {/* Spotlight Desktop */}
       <motion.div
         className="hidden md:block absolute inset-0 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-size-[40px_40px] opacity-20"
         style={style}
       />
 
-      {/* STRAT 3: Ambient Glows (Statice pe mobil, FARA BLUR EXAGERAT) */}
+      {/* Ambient Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
 
@@ -83,7 +82,7 @@ function Hero() {
         style={{ y: yText, opacity: opacityText }}
         className="z-10 container px-6 mx-auto text-center relative"
       >
-        {/* BADGE */}
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +100,7 @@ function Hero() {
           </div>
         </motion.div>
 
-        {/* TITLU OPTIMIZAT - Fade Up simplu (Fara masca overflow) */}
+        {/* Titlu */}
         <div className="mb-8 flex flex-col items-center leading-none">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -122,7 +121,7 @@ function Hero() {
           </motion.h1>
         </div>
 
-        {/* SUBTITLU */}
+        {/* Subtitlu */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -133,7 +132,7 @@ function Hero() {
           Standarde germane, execuție românească.
         </motion.p>
 
-        {/* BUTOANE */}
+        {/* Butoane */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -162,7 +161,7 @@ function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* SCROLL INDICATOR */}
+      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -181,7 +180,7 @@ function Hero() {
   );
 }
 
-// --- 2. SERVICES SECTION (REPARAT - FARA CLIPEALA) ---
+// --- 2. SERVICES SECTION ---
 function ServicesTeaser() {
   return (
     <section className="py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
@@ -214,7 +213,6 @@ function ServicesTeaser() {
           </FadeIn>
 
           <div className="grid gap-6">
-            {/* CARD 1: FARA 'transition-all', DOAR 'transition-shadow' */}
             <FadeIn delay={0.2} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
               <div className="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
@@ -226,7 +224,6 @@ function ServicesTeaser() {
               </p>
             </FadeIn>
 
-            {/* CARD 2: FARA 'transition-all', DOAR 'transition-shadow' */}
             <FadeIn delay={0.4} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
               <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
@@ -274,70 +271,13 @@ function PortfolioTeaser() {
   );
 }
 
-// --- 4. FOOTER SECTION ---
-function Footer() {
-  return (
-    <footer className="bg-zinc-950 text-white pt-24 pb-12 border-t border-zinc-900">
-      <div className="container px-6 mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-
-          <div className="col-span-1 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">V</span>
-              </div>
-              <span className="font-bold text-2xl tracking-tight">Voltariss</span>
-            </div>
-            <p className="text-zinc-400 max-w-md mb-8 text-lg">
-              Soluții electrice profesionale. Siguranță, calitate și inovație pentru casa și afacerea ta.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-lg mb-6">Navigare</h4>
-            <ul className="space-y-4 text-zinc-400">
-              <li><Link href="/" className="hover:text-white transition-colors">Acasă</Link></li>
-              <li><Link href="/servicii" className="hover:text-white transition-colors">Servicii</Link></li>
-              <li><Link href="/portofoliu" className="hover:text-white transition-colors">Portofoliu</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-lg mb-6">Contact</h4>
-            <ul className="space-y-4 text-zinc-400">
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-blue-500" />
-                <a href="tel:0700000000" className="hover:text-white transition-colors">0700 000 000</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-4 h-4 flex items-center justify-center text-blue-500">@</span>
-                <a href="mailto:contact@voltariss.ro" className="hover:text-white transition-colors">contact@voltariss.ro</a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div className="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-zinc-600 text-sm">
-          <p>© {new Date().getFullYear()} Voltariss. Toate drepturile rezervate.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-zinc-400">Termeni și condiții</Link>
-            <Link href="#" className="hover:text-zinc-400">Politica de confidențialitate</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
+// --- MAIN HOME COMPONENT ---
 export default function Home() {
   return (
     <main className="min-h-screen selection:bg-blue-500/30 bg-zinc-50 dark:bg-zinc-950">
       <Hero />
       <ServicesTeaser />
       <PortfolioTeaser />
-      <Footer />
     </main>
   );
 }
