@@ -23,21 +23,21 @@ const FadeIn = ({
   className?: string
 }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: 30 }} // Pornim de la 30px mai jos
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.6, delay, ease: "easeOut" }}
+    viewport={{ once: true, amount: 0.2 }} // Se animează O SINGURĂ DATĂ, când e 20% vizibil
+    transition={{ duration: 0.8, delay, ease: "easeOut" }}
     className={className}
   >
     {children}
   </motion.div>
 );
 
-// --- 1. HERO SECTION ULTRA-RAPID ---
+// --- 1. HERO SECTION (Versiunea Ultra-Rapidă Mobile) ---
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Configurare Spotlight (Doar pentru Desktop)
+  // Configurare Spotlight (Mouse tracking - DOAR DESKTOP)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
@@ -69,14 +69,13 @@ function Hero() {
       {/* STRAT 1: Grid Static */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]"></div>
 
-      {/* STRAT 2: Spotlight (DOAR PE DESKTOP - hidden md:block) */}
+      {/* STRAT 2: Spotlight (ASCUNS PE MOBIL - hidden md:block) */}
       <motion.div
         className="hidden md:block absolute inset-0 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-size-[40px_40px] opacity-20"
         style={style}
       />
 
       {/* STRAT 3: Ambient Glows (Statice pe mobil, FARA BLUR EXAGERAT) */}
-      {/* Am scos "animate-pulse-slow" de pe mobil si am redus blur-ul */}
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
 
@@ -84,7 +83,7 @@ function Hero() {
         style={{ y: yText, opacity: opacityText }}
         className="z-10 container px-6 mx-auto text-center relative"
       >
-        {/* BADGE - Fara backdrop-blur pe mobil */}
+        {/* BADGE */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,10 +101,10 @@ function Hero() {
           </div>
         </motion.div>
 
-        {/* TITLU OPTIMIZAT (Fara masca overflow-hidden care agata) */}
+        {/* TITLU OPTIMIZAT - Fade Up simplu (Fara masca overflow) */}
         <div className="mb-8 flex flex-col items-center leading-none">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }} // Doar fade si miscare mica
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white pb-2"
@@ -182,8 +181,7 @@ function Hero() {
   );
 }
 
-// --- 2. RESTUL PAGINII (RAMANE LA FEL DE BUN) ---
-
+// --- 2. SERVICES SECTION (REPARAT - FARA CLIPEALA) ---
 function ServicesTeaser() {
   return (
     <section className="py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
@@ -216,7 +214,8 @@ function ServicesTeaser() {
           </FadeIn>
 
           <div className="grid gap-6">
-            <FadeIn delay={0.2} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 relative overflow-hidden">
+            {/* CARD 1: FARA 'transition-all', DOAR 'transition-shadow' */}
+            <FadeIn delay={0.2} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
               <div className="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Cpu className="w-7 h-7 text-blue-600" />
@@ -227,7 +226,8 @@ function ServicesTeaser() {
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.4} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-500 relative overflow-hidden">
+            {/* CARD 2: FARA 'transition-all', DOAR 'transition-shadow' */}
+            <FadeIn delay={0.4} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
               <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Zap className="w-7 h-7 text-orange-600" />
@@ -245,6 +245,7 @@ function ServicesTeaser() {
   );
 }
 
+// --- 3. PORTFOLIO SECTION ---
 function PortfolioTeaser() {
   return (
     <section className="py-32 bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
@@ -273,6 +274,7 @@ function PortfolioTeaser() {
   );
 }
 
+// --- 4. FOOTER SECTION ---
 function Footer() {
   return (
     <footer className="bg-zinc-950 text-white pt-24 pb-12 border-t border-zinc-900">
