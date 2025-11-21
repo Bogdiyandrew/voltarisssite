@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image"; // <--- IMPORT NOU
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,11 +50,23 @@ export default function Navbar() {
         <div className="container mx-auto px-6 flex items-center justify-between">
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2 z-50 group">
-            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/20 group-hover:scale-105 transition-transform">
-              <span className="text-white font-bold text-xl">V</span>
+            {/* AICI AM INLOCUIT DIV-UL CU ICONITA */}
+            <div className="relative w-10 h-10 group-hover:scale-105 transition-transform">
+              <Image
+                src="/logo.svg"
+                alt="Voltariss Logo"
+                fill
+                className="object-contain" // Asigură că logo-ul se vede complet fără să fie deformat
+                priority
+              />
             </div>
-            <span className={`font-bold text-xl tracking-tight transition-colors ${isScrolled || pathname !== "/" ? "text-zinc-900 dark:text-white" : "text-zinc-900 dark:text-white"
-              }`}>
+
+            <span
+              className={`font-bold text-xl tracking-tight transition-colors ${isScrolled || pathname !== "/"
+                  ? "text-zinc-900 dark:text-white"
+                  : "text-zinc-900 dark:text-white"
+                }`}
+            >
               Voltariss
             </span>
           </Link>
@@ -124,7 +137,10 @@ export default function Navbar() {
                       }`}
                   >
                     {link.name}
-                    <ChevronRight className={`w-5 h-5 ${pathname === link.href ? "text-blue-600" : "text-zinc-400"}`} />
+                    <ChevronRight
+                      className={`w-5 h-5 ${pathname === link.href ? "text-blue-600" : "text-zinc-400"
+                        }`}
+                    />
                   </Link>
                 </motion.div>
               ))}
