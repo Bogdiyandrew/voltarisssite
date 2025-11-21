@@ -120,7 +120,7 @@ function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter text-white pb-2"
           >
-            INGINERIE ELECTRICĂ
+            INGINERIE ELECTRICA
           </motion.h1>
 
           <motion.h1
