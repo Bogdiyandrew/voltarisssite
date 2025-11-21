@@ -138,7 +138,6 @@ function Hero() {
           className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Producție de tablouri electrice industriale & instalații civile sigure.
-          Standarde germane, execuție românească.
         </motion.p>
 
         {/* Butoane - Font Inter Black */}
