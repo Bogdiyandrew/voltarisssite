@@ -54,8 +54,6 @@ export default function Footer() {
 
                 </div>
 
-                ---
-
                 {/* --- SECTIUNEA ANPC, SAL & SOL (CU SVG) --- */}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pb-8 border-t border-zinc-900 pt-8">
 

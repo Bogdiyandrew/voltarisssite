@@ -2,18 +2,20 @@
 
 import React from "react";
 import { Cpu, Zap, ShieldCheck, Factory, Home, Server } from "lucide-react";
+import Image from "next/image"; // Am adăugat importul necesar
 
+// --- COMPONENTA PRINCIPALĂ A PAGINII ---
 export default function ServiciiPage() {
   return (
     <main className="pt-32 pb-20 bg-zinc-50 dark:bg-zinc-950 min-h-screen">
       <div className="container mx-auto px-6">
 
-        {/* Header Pagina */}
+        {/* Header Pagina (Text Centrat) */}
         <div className="text-center mb-16">
           <h1 className="font-orbitron font-black text-4xl md:text-6xl text-zinc-900 dark:text-white mb-6">
             Solutii Electrice Complete
           </h1>
-          <p className="font-inter font-black text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+          <p className="font-inter font-bold text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             De la producția de tablouri electrice automatizate până la instalații civile sigure.
             Acoperim tot spectrul electrotehnic.
           </p>
@@ -25,7 +27,7 @@ export default function ServiciiPage() {
             <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-xl text-blue-600 dark:text-blue-400">
               <Factory className="w-8 h-8" />
             </div>
-            <h2 className="font-orbitron font-black text-3xl text-zinc-900 dark:text-white">Productie Tablouri Electrice (Panel Builder)</h2>
+            <h2 className="font-orbitron font-black text-3xl text-zinc-900 dark:text-white">Producție Tablouri Electrice (Panel Builder)</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -74,11 +76,20 @@ export default function ServiciiPage() {
                 </li>
               ))}
             </ul>
-            <div className="bg-zinc-100 dark:bg-zinc-900 rounded-2xl flex items-center justify-center min-h-[300px] border border-zinc-200 dark:border-zinc-800">
-              <p className="text-zinc-400 text-sm uppercase tracking-widest">[FOTO: Instalatie casa la rosu]</p>
+            {/* AICI: Am înlocuit placeholder-ul cu imaginea 1serv.png */}
+            <div className="relative w-full min-h-[300px] rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
+              <Image
+                src="/images/1serv.png" // <--- Path-ul imaginii tale
+                alt="Instalație electrică curată în perete"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
+
+        {/* Poți adăuga aici mai multe secțiuni de servicii dacă dorești */}
 
       </div>
     </main>

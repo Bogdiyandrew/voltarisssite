@@ -279,7 +279,7 @@ function PortfolioTeaser() {
           {/* COLOANA 1: TEXT ȘI CTA (Stânga pe Desktop) */}
           <FadeIn className="lg:text-left text-center">
             <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-8 dark:text-white">
-              Lucrări care vorbesc de la sine
+              Lucrari care vorbesc de la sine
             </h2>
             <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-12">
               Nu vorbim mult. Lăsăm calitatea execuției să te convingă.
@@ -303,7 +303,7 @@ function PortfolioTeaser() {
 
               {/* Imaginea 1: Tablou (Baza) */}
               <Image
-                src="/images/1hero.png"
+                src="/images/3hero.png"
                 width={400}
                 height={250}
                 alt="Tablou electric industrial"
@@ -312,7 +312,7 @@ function PortfolioTeaser() {
 
               {/* Imaginea 2: Șantier (Suprapusă dreapta jos) */}
               <Image
-                src="/images/2hero.png"
+                src="/images/4hero.png"
                 width={300}
                 height={200}
                 alt="Instalație curată pe șantier"
@@ -321,7 +321,7 @@ function PortfolioTeaser() {
 
               {/* Imaginea 3: Detaliu Smart (Suprapusă stânga jos) */}
               <Image
-                src="/images/hero-section.png"
+                src="/images/5hero.png"
                 width={200}
                 height={150}
                 alt="Detalii priză smart"
