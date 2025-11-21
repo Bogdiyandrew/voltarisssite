@@ -197,7 +197,7 @@ function ServicesTeaser() {
 
           <FadeIn>
             <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-8 text-zinc-900 dark:text-white leading-tight">
-              Două divizii.<br />
+              Doua divizii.<br />
               <span className="text-zinc-400">O singură calitate.</span>
             </h2>
             <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed">
