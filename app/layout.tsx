@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar"; // <--- IMPORTUL NOU
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +32,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    /* Am schimbat lang in 'ro' si am adaugat scroll-smooth pentru navigatie */
+    <html lang="ro" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100`}
       >
-        {children}
+        <SmoothScrolling>
+          <Navbar /> {/* <--- AICI apare meniul peste tot */}
+          {children}
+        </SmoothScrolling>
       </body>
     </html>
   );
