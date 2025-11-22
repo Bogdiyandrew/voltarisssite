@@ -223,7 +223,7 @@ function ServicesTeaser() {
                 />
               </div>
 
-              <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-orange-600 transition-colors relative z-10">Instalații Argeș</h3>
+              <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-orange-600 transition-colors relative z-10">Instalatii Arges</h3>
               <p className="font-bold text-zinc-500 leading-relaxed relative z-10">
                 Execuție instalații electrice civile și industriale în Pitești și împrejurimi. Branșamente, reparații și mentenanță.
               </p>
