@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
-    const { name, phone, message } = await request.json();
+    const { name, phone, email, message } = await request.json();
 
     const transporter = nodemailer.createTransport({
       host: "smtp.zoho.eu",
@@ -23,6 +23,7 @@ export async function POST(request: Request) {
         <h3>Mesaj Nou de pe Site</h3>
         <p><strong>Nume:</strong> ${name}</p>
         <p><strong>Telefon:</strong> <a href="tel:${phone}">${phone}</a></p>
+        <p><strong>Email:</strong> ${email || "Nespecificat"}</p>
         <p><strong>Mesaj:</strong><br/>${message}</p>
       `,
     };

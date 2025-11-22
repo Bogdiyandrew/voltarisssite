@@ -15,6 +15,7 @@ export default function ContactForm() {
     const data = {
       name: formData.get("name"),
       phone: formData.get("phone"),
+      email: formData.get("email"),
       message: formData.get("message"),
     };
 
@@ -45,7 +46,7 @@ export default function ContactForm() {
         <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
         <h3 className="text-2xl font-bold text-white mb-2">Mesaj Trimis!</h3>
         <p className="text-zinc-400">Te vom contacta în cel mai scurt timp.</p>
-        <button onClick={() => setStatus("idle")} className="mt-6 text-sm text-zinc-500 underline hover:text-zinc-300">
+        <button onClick={() => setStatus("idle")} className="mt-6 text-sm text-zinc-500 underline hover:text-zinc-300 cursor-pointer">
           Trimite alt mesaj
         </button>
       </motion.div>
@@ -73,6 +74,16 @@ export default function ContactForm() {
           placeholder="Număr de telefon (Obligatoriu)"
           required
           pattern="[0-9\+\-\s]+"
+          className="w-full bg-zinc-900 border border-zinc-700 p-4 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all text-zinc-100 placeholder:text-zinc-500"
+        />
+      </div>
+
+      <div className="relative">
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Email (Opțional)"
           className="w-full bg-zinc-900 border border-zinc-700 p-4 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all text-zinc-100 placeholder:text-zinc-500"
         />
       </div>
