@@ -1,15 +1,13 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   CheckCircle2,
-  Zap,
-  Cpu
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image"; // Necesită Image pentru Hero și Colaj
+import Image from "next/image";
 
 // --- COMPONENTE UI INTERNE (FADEIN) ---
 const FadeIn = ({
@@ -32,24 +30,9 @@ const FadeIn = ({
   </motion.div>
 );
 
-// --- 1. HERO SECTION (CU IMAGINE FLOTANTĂ) ---
+// --- 1. HERO SECTION (FĂRĂ SPOTLIGHT LAGGY ȘI CU BACKGROUND ASCUNS PE MOBILE) ---
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-
-  // Configurare Spotlight (DOAR DESKTOP)
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
-  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
-  const maskImage = useMotionTemplate`radial-gradient(600px at ${springX}px ${springY}px, white, transparent)`;
-  const style = { maskImage, WebkitMaskImage: maskImage };
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -62,31 +45,29 @@ function Hero() {
   return (
     <section
       ref={ref}
-      onMouseMove={handleMouseMove}
+      // Am eliminat onMouseMove
       className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-zinc-950"
     >
+
+      {/* NOU: STRAT 1 - BACKGROUND IMAGE FULL SCREEN (ASCUNS PE TELEFON) */}
+      <div className="absolute inset-0 hidden md:block"> {/* <--- hidden md:block AICI */}
+        <Image
+          src="/images/herro.jpg"
+          alt="Fundal industrial high-tech"
+          fill
+          priority
+          sizes="100vw"
+          // Opacitate și întunecare pentru lizibilitatea textului
+          className="object-cover opacity-25 brightness-75 transition-opacity duration-1000"
+        />
+      </div>
+
+      {/* STRAT 2: Grid Static */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]"></div>
 
-      {/* Spotlight Desktop */}
-      <motion.div
-        className="hidden md:block absolute inset-0 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-size-[40px_40px] opacity-20"
-        style={style}
-      />
-
-      {/* Ambient Glows */}
+      {/* Ambient Glows (Păstrate) */}
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
-
-      {/* ASSETUL FLOTANT - Tabloul Electric */}
-      <Image
-        src="/images/herro.jpg" // <--- Path-ul imaginii tale
-        alt="Fundal industrial high-tech"
-        fill // Face imaginea să umple tot containerul părinte (inset-0)
-        priority
-        sizes="100vw"
-        // Opacitate și blur/întunecare pentru a păstra textul lizibil
-        className="object-cover opacity-25 brightness-75 transition-opacity duration-1000"
-      />
 
       <motion.div
         style={{ y: yText, opacity: opacityText }}
@@ -199,7 +180,7 @@ function ServicesTeaser() {
           <FadeIn>
             <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-8 text-zinc-900 dark:text-white leading-tight">
               Doua divizii.<br />
-              <span className="text-zinc-400">O singură calitate.</span>
+              <span className="text-zinc-400">O singura calitate.</span>
             </h2>
             <p className="font-bold text-xl text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed">
               Fie că ai nevoie de un tablou de automatizare complex livrat oriunde în țară,
@@ -256,7 +237,7 @@ function ServicesTeaser() {
                 />
               </div>
 
-              <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-orange-600 transition-colors relative z-10">Instalatii Arges</h3>
+              <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-orange-600 transition-colors relative z-10">Instalații Argeș</h3>
               <p className="font-bold text-zinc-500 leading-relaxed relative z-10">
                 Execuție instalații electrice civile și industriale în Pitești și împrejurimi. Branșamente, reparații și mentenanță.
               </p>
