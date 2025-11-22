@@ -6,6 +6,8 @@ import SmoothScrolling from "@/components/SmoothScrolling";
 import Footer from "@/components/Footer";
 import { orbitron, inter } from "@/app/ui/fonts";
 import ScrollToTop from "@/components/ScrollToTop";
+import { GoogleAnalytics } from '@next/third-parties/google'
+import CookieBanner from "@/components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,9 +40,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} ${inter.variable} antialiased bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-inter`}
       >
+        <GoogleAnalytics gaId="G-E8DDBMN6SX" />
         <SmoothScrolling>
           <ScrollToTop />
           <Navbar />
+          <CookieBanner />
           {children}
           <Footer />
         </SmoothScrolling>
