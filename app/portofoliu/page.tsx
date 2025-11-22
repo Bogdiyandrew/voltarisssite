@@ -69,7 +69,6 @@ export default function PortofoliuPage() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
               </div>
 
@@ -88,7 +87,6 @@ export default function PortofoliuPage() {
           ))}
         </div>
 
-        {/* Mesaj pentru clientii care vor sa vada mai mult */}
         <div className="mt-24 p-8 rounded-2xl bg-zinc-900 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">Vrei să vezi o lucrare similară cu a ta?</h3>
           <p className="text-zinc-400 mb-8">
