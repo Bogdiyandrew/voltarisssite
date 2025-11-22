@@ -95,7 +95,7 @@ export default function Footer() {
                                 </div>
                                 <div>
                                     <p className="text-xs text-zinc-500 uppercase font-bold mb-1">Locație</p>
-                                    <p className="text-zinc-300">Pitești, Argeș & Împrejurimi</p>
+                                    <p className="text-zinc-300">Pitești, Argeș, Romania</p>
                                 </div>
                             </li>
                         </ul>
@@ -136,8 +136,8 @@ export default function Footer() {
                         <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-zinc-500 font-inter">
                             <p>© {new Date().getFullYear()} Voltariss. Toate drepturile rezervate.</p>
                             <div className="flex gap-6">
-                                <Link href="#" className="hover:text-zinc-300 transition-colors">Termeni și condiții</Link>
-                                <Link href="#" className="hover:text-zinc-300 transition-colors">Politica de confidențialitate</Link>
+                                <Link href="/termeni-si-conditii" className="hover:text-zinc-300 transition-colors">Termeni și condiții</Link>
+                                <Link href="/politica-de-confidentialitate" className="hover:text-zinc-300 transition-colors">Politica de confidențialitate</Link>
                             </div>
                         </div>
                     </div>
