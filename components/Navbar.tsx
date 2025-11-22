@@ -78,7 +78,7 @@ export default function Navbar() {
                     href={link.href}
                     onMouseEnter={() => setHoveredPath(link.href)}
                     onMouseLeave={() => setHoveredPath(null)}
-                    className={`relative px-5 py-2 rounded-full text-sm font-bold font-inter transition-colors duration-300 z-10 ${isActive ? "text-zinc-900 dark:text-white" : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                    className={`relative px-5 py-2 rounded-full text-sm font-bold font-inter transition-colors duration-300 z-10 ${isActive ? "text-zinc-900 dark:text-white" : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-blue-400"
                       }`}
                   >
                     {isActive && (

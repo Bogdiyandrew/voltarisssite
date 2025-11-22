@@ -4,34 +4,36 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Camera, Lock, Zap, Server } from "lucide-react";
 
+import Image from "next/image";
+
 const projects = [
   {
     id: 1,
     title: "Tablou Automatizare Hală",
     category: "Industrial",
     desc: "Proiectare și execuție tablou comandă pompe 3x400V cu convertizoare de frecvență.",
-    icon: <Server className="w-10 h-10 text-blue-500" />
+    image: "/images/1port.png"
   },
   {
     id: 2,
     title: "Instalație Vilă P+1",
     category: "Rezidențial",
     desc: "Refacere completă instalație electrică, montaj aparataj modular și tablou general.",
-    icon: <Zap className="w-10 h-10 text-orange-500" />
+    image: "/images/2port.png"
   },
   {
     id: 3,
     title: "Tablou General Distribuție",
     category: "Panel Builder",
     desc: "Tablou 250A pentru clădire de birouri, echipat cu analizor de rețea și descărcătoare.",
-    icon: <Lock className="w-10 h-10 text-zinc-500" />
+    image: "/images/3port.png"
   },
   {
     id: 4,
     title: "Smart Home Argeș",
     category: "Automatizare",
     desc: "Implementare sistem control lumini și climatizare prin relee inteligente.",
-    icon: <Camera className="w-10 h-10 text-purple-500" />
+    image: "/images/4port.png"
   }
 ];
 
@@ -60,17 +62,15 @@ export default function PortofoliuPage() {
               transition={{ delay: index * 0.1 }}
               className="group relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/50 transition-colors"
             >
-              <div className="h-64 w-full bg-zinc-100 dark:bg-zinc-950 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
-
-                <div className="scale-100 group-hover:scale-110 transition-transform duration-500 p-6 bg-white dark:bg-zinc-900 rounded-full shadow-2xl border border-zinc-100 dark:border-zinc-800 z-10">
-                  {project.icon}
-                </div>
-
-
-                <div className="absolute bottom-4 right-4 text-xs font-mono text-zinc-400 bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded">
-                  IMG_PENDING
-                </div>
+              <div className="h-64 w-full bg-zinc-100 dark:bg-zinc-950 relative overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
               </div>
 
               <div className="p-8">
