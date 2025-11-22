@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-// --- COMPONENTE UI INTERNE (FADEIN) ---
+
 const FadeIn = ({
   children,
   delay = 0,
@@ -30,7 +30,7 @@ const FadeIn = ({
   </motion.div>
 );
 
-// --- 1. HERO SECTION (FĂRĂ SPOTLIGHT LAGGY ȘI CU BACKGROUND ASCUNS PE MOBILE) ---
+
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -45,27 +45,21 @@ function Hero() {
   return (
     <section
       ref={ref}
-      // Am eliminat onMouseMove
       className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-zinc-950"
     >
-
-      {/* NOU: STRAT 1 - BACKGROUND IMAGE FULL SCREEN (ASCUNS PE TELEFON) */}
-      <div className="absolute inset-0 hidden md:block"> {/* <--- hidden md:block AICI */}
+      <div className="absolute inset-0 hidden md:block">
         <Image
           src="/images/herro.jpg"
           alt="Fundal industrial high-tech"
           fill
           priority
           sizes="100vw"
-          // Opacitate și întunecare pentru lizibilitatea textului
           className="object-cover opacity-25 brightness-75 transition-opacity duration-1000"
         />
       </div>
 
-      {/* STRAT 2: Grid Static */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px]"></div>
 
-      {/* Ambient Glows (Păstrate) */}
       <div className="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-indigo-500/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen pointer-events-none" />
 
@@ -73,7 +67,6 @@ function Hero() {
         style={{ y: yText, opacity: opacityText }}
         className="z-10 container px-6 mx-auto text-center relative"
       >
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +84,6 @@ function Hero() {
           </div>
         </motion.div>
 
-        {/* Titlu - Font Orbitron Black */}
         <div className="mb-8 flex flex-col items-center leading-none">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -112,7 +104,6 @@ function Hero() {
           </motion.h1>
         </div>
 
-        {/* Subtitlu - Font Inter (moștenit) */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,7 +113,6 @@ function Hero() {
           Producție de tablouri electrice industriale & instalații civile sigure.
         </motion.p>
 
-        {/* Butoane - Font Inter Black */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -151,7 +141,6 @@ function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -170,7 +159,6 @@ function Hero() {
   );
 }
 
-// --- 2. SERVICES SECTION ---
 function ServicesTeaser() {
   return (
     <section className="py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
@@ -206,10 +194,9 @@ function ServicesTeaser() {
             <FadeIn delay={0.2} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
 
-              {/* Panel Builder - Macro Foto Cablaj */}
               <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Image
-                  src="/images/1hero.png" // Imaginea 1 (Cablaj)
+                  src="/images/1hero.png"
                   alt="Macro foto cablaj tablou electric"
                   fill
                   sizes="56px"
@@ -226,10 +213,9 @@ function ServicesTeaser() {
             <FadeIn delay={0.4} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
 
-              {/* Instalații Argeș - Foto Tubulatură Curată */}
               <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Image
-                  src="/images/2hero.png" // Imaginea 2 (Șantier)
+                  src="/images/2hero.png"
                   alt="Instalație electrică curată pe șantier"
                   fill
                   sizes="56px"
@@ -250,14 +236,12 @@ function ServicesTeaser() {
   );
 }
 
-// --- 3. PORTFOLIO SECTION (FINAL: CU COLAJ IMAGINI) ---
 function PortfolioTeaser() {
   return (
     <section className="py-32 bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
       <div className="container px-6 mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* COLOANA 1: TEXT ȘI CTA (Stânga pe Desktop) */}
           <FadeIn className="lg:text-left text-center">
             <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-8 dark:text-white">
               Lucrari care vorbesc de la sine
@@ -278,11 +262,9 @@ function PortfolioTeaser() {
             </Link>
           </FadeIn>
 
-          {/* COLOANA 2: COLAJ IMAGINI (Dreapta pe Desktop) */}
           <FadeIn delay={0.4} className="hidden lg:flex justify-center items-center relative h-full min-h-[400px]">
             <div className="relative w-full max-w-lg h-full">
 
-              {/* Imaginea 1: Tablou (Baza) */}
               <Image
                 src="/images/3hero.png"
                 width={400}
@@ -291,7 +273,6 @@ function PortfolioTeaser() {
                 className="absolute top-0 left-0 w-3/4 rounded-xl shadow-2xl shadow-zinc-900/40 object-cover"
               />
 
-              {/* Imaginea 2: Șantier (Suprapusă dreapta jos) */}
               <Image
                 src="/images/4hero.png"
                 width={300}
@@ -300,7 +281,6 @@ function PortfolioTeaser() {
                 className="absolute top-1/4 right-0 w-1/2 rounded-xl shadow-2xl shadow-zinc-900/40 translate-x-1/4 object-cover border-4 border-zinc-50 dark:border-zinc-950"
               />
 
-              {/* Imaginea 3: Detaliu Smart (Suprapusă stânga jos) */}
               <Image
                 src="/images/5hero.png"
                 width={200}
@@ -317,7 +297,6 @@ function PortfolioTeaser() {
   );
 }
 
-// --- MAIN HOME COMPONENT ---
 export default function Home() {
   return (
     <main className="min-h-screen selection:bg-blue-500/30 bg-zinc-50 dark:bg-zinc-950">

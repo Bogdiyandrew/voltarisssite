@@ -1,4 +1,4 @@
-import { Orbitron, Inter } from 'next/font/google'; // Importăm Inter
+import { Orbitron, Inter } from 'next/font/google';
 
 export const orbitron = Orbitron({
     subsets: ['latin'],
@@ -6,7 +6,7 @@ export const orbitron = Orbitron({
     display: 'swap',
 });
 
-export const inter = Inter({ // Configurăm Inter
+export const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',

@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Camera, Lock, Zap, Server } from "lucide-react";
 
-// Date fictive pentru placeholder (le poti schimba textele)
 const projects = [
   {
     id: 1,
@@ -51,7 +50,6 @@ export default function PortofoliuPage() {
           </p>
         </div>
 
-        {/* GRID PROIECTE - Varianta Placeholder "Tehnic" */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -62,23 +60,19 @@ export default function PortofoliuPage() {
               transition={{ delay: index * 0.1 }}
               className="group relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/50 transition-colors"
             >
-              {/* Zona de Imagine (Placeholder) */}
               <div className="h-64 w-full bg-zinc-100 dark:bg-zinc-950 flex items-center justify-center relative overflow-hidden">
-                {/* Pattern de fundal tehnic */}
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
-                {/* Iconita Centrala */}
                 <div className="scale-100 group-hover:scale-110 transition-transform duration-500 p-6 bg-white dark:bg-zinc-900 rounded-full shadow-2xl border border-zinc-100 dark:border-zinc-800 z-10">
                   {project.icon}
                 </div>
 
-                {/* Badge "Coming Soon" discret */}
+
                 <div className="absolute bottom-4 right-4 text-xs font-mono text-zinc-400 bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded">
                   IMG_PENDING
                 </div>
               </div>
 
-              {/* Detalii Proiect */}
               <div className="p-8">
                 <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">
                   {project.category}

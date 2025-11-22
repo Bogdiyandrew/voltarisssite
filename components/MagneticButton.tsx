@@ -6,7 +6,7 @@ import gsap from "gsap";
 interface MagneticButtonProps {
     children: React.ReactNode;
     className?: string;
-    strength?: number; // How strong the magnetic pull is (default 0.5)
+    strength?: number;
 }
 
 export default function MagneticButton({
@@ -48,7 +48,6 @@ export default function MagneticButton({
         };
     }, [strength]);
 
-    // We wrap children in a div that will be animated
     return (
         <div ref={ref} className={`inline-block ${className}`}>
             {children}

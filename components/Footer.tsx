@@ -6,7 +6,6 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <footer className="bg-zinc-950 text-white pt-24 pb-12 border-t border-zinc-900 relative overflow-hidden">
-            {/* Background Elements for Premium Feel */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50" />
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -14,7 +13,6 @@ export default function Footer() {
             <div className="container px-6 mx-auto relative z-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
 
-                    {/* 1. BRANDING & DESCRIPTION (4 cols) */}
                     <div className="lg:col-span-5 space-y-8">
                         <div className="flex items-center gap-3">
                             <div className="relative w-12 h-12">
@@ -35,7 +33,6 @@ export default function Footer() {
                             Partenerul tău de încredere în inginerie electrică.
                         </p>
 
-                        {/* Social Media Placeholders (Optional) */}
                         <div className="flex gap-4">
                             {[Facebook, Instagram, Linkedin].map((Icon, i) => (
                                 <a key={i} href="#" className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
@@ -45,7 +42,6 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* 2. NAVIGARE (3 cols) */}
                     <div className="lg:col-span-3">
                         <h4 className="font-orbitron font-bold text-xl mb-8 text-white tracking-wide">Navigare</h4>
                         <ul className="space-y-4 font-inter font-medium">
@@ -68,7 +64,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* 3. CONTACT (4 cols) */}
                     <div className="lg:col-span-4">
                         <h4 className="font-orbitron font-bold text-xl mb-8 text-white tracking-wide">Contact</h4>
                         <ul className="space-y-6 font-inter">
@@ -108,11 +103,9 @@ export default function Footer() {
 
                 </div>
 
-                {/* --- SECTIUNEA ANPC, SAL & SOL --- */}
                 <div className="border-t border-zinc-900 pt-10 pb-10">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
-                        {/* ANPC LOGOS */}
                         <div className="flex flex-wrap justify-center md:justify-start gap-6">
                             <a
                                 href="http://www.anpc.ro/categorie/557/sal"
@@ -140,7 +133,6 @@ export default function Footer() {
                             </a>
                         </div>
 
-                        {/* COPYRIGHT */}
                         <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-zinc-500 font-inter">
                             <p>© {new Date().getFullYear()} Voltariss. Toate drepturile rezervate.</p>
                             <div className="flex gap-6">

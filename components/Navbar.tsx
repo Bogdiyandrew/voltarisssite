@@ -21,7 +21,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Previne scroll-ul când meniul mobil este deschis
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -48,11 +47,10 @@ export default function Navbar() {
       >
         <div
           className={`relative flex items-center justify-between px-6 transition-all duration-500 ${isScrolled
-              ? "w-[90%] md:w-[80%] lg:w-[1000px] bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl rounded-full shadow-lg border border-white/20 dark:border-zinc-800/50 py-3"
-              : "w-full container bg-transparent py-2"
+            ? "w-[90%] md:w-[80%] lg:w-[1000px] bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl rounded-full shadow-lg border border-white/20 dark:border-zinc-800/50 py-3"
+            : "w-full container bg-transparent py-2"
             }`}
         >
-          {/* LOGO */}
           <Link href="/" className="flex items-center gap-2 z-50 group shrink-0">
             <div className="relative w-10 h-10 group-hover:rotate-12 transition-transform duration-500">
               <Image
@@ -68,7 +66,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
             <div className="flex gap-1 bg-zinc-100/50 dark:bg-zinc-800/50 p-1.5 rounded-full border border-zinc-200/50 dark:border-zinc-700/50 backdrop-blur-md relative">
               {navLinks.map((link) => {
@@ -84,7 +81,6 @@ export default function Navbar() {
                     className={`relative px-5 py-2 rounded-full text-sm font-bold font-inter transition-colors duration-300 z-10 ${isActive ? "text-zinc-900 dark:text-white" : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
                       }`}
                   >
-                    {/* Active Background */}
                     {isActive && (
                       <motion.div
                         layoutId="navbar-active"
@@ -93,7 +89,6 @@ export default function Navbar() {
                         style={{ zIndex: -1 }}
                       />
                     )}
-                    {/* Hover Background (if not active) */}
                     {isHovered && !isActive && (
                       <motion.div
                         layoutId="navbar-hover"
@@ -109,13 +104,11 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* RIGHT SIDE ACTIONS */}
           <div className="hidden md:flex items-center gap-4 shrink-0">
             <a
               href="tel:0723563640"
               className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full text-sm font-black font-inter overflow-hidden transition-transform hover:scale-105 active:scale-95"
             >
-              {/* Shimmer Effect */}
               <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
 
               <Phone className="w-4 h-4 relative z-10 group-hover:rotate-12 transition-transform" />
@@ -123,7 +116,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* MOBILE TOGGLE */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden z-50 p-2.5 text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
@@ -133,7 +125,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* MOBILE MENU OVERLAY */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -155,8 +146,8 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`group flex items-center justify-between p-5 rounded-2xl text-xl font-bold font-inter border transition-all duration-300 ${pathname === link.href
-                          ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-600"
-                          : "bg-white dark:bg-zinc-900 border-zinc-100 dark:border-zinc-800 text-zinc-900 dark:text-white hover:scale-[1.02]"
+                        ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-600"
+                        : "bg-white dark:bg-zinc-900 border-zinc-100 dark:border-zinc-800 text-zinc-900 dark:text-white hover:scale-[1.02]"
                         }`}
                     >
                       <span className="flex items-center gap-3">

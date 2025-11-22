@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     const { name, phone, message } = await request.json();
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.zoho.eu", // ATENȚIE: Dacă ești pe serverul US, pune smtp.zoho.com
+      host: "smtp.zoho.eu",
       port: 465,
       secure: true,
       auth: {
@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: process.env.ZOHO_USER,
-      to: process.env.ZOHO_USER, 
+      to: process.env.ZOHO_USER,
       subject: `Formular Site Voltariss: ${name}`,
       html: `
         <h3>Mesaj Nou de pe Site</h3>
