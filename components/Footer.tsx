@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <footer className="bg-zinc-950 text-white pt-24 pb-12 border-t border-zinc-900 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-blue-500 to-transparent opacity-50" />
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -138,6 +138,7 @@ export default function Footer() {
                             <div className="flex gap-6">
                                 <Link href="/termeni-si-conditii" className="hover:text-zinc-300 transition-colors">Termeni și condiții</Link>
                                 <Link href="/politica-de-confidentialitate" className="hover:text-zinc-300 transition-colors">Politica de confidențialitate</Link>
+                                <Link href="/politica-cookies" className="hover:text-zinc-300 transition-colors">Politica de cookie-uri</Link>
                             </div>
                         </div>
                     </div>

@@ -98,7 +98,7 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-blue-400 bg-[length:200%_auto] animate-gradient pb-2"
+            className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-blue-400 bg-size-[200%_auto] animate-gradient pb-2"
           >
             DE PRECIZIE
           </motion.h1>
@@ -125,7 +125,7 @@ function Hero() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-950 font-black rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20 transition-shadow cursor-pointer"
             >
-              Cere o Ofertă <ArrowRight className="w-4 h-4" />
+              Cere o ofertǎ <ArrowRight className="w-4 h-4" />
             </motion.button>
           </Link>
 
@@ -135,7 +135,7 @@ function Hero() {
               whileTap={{ scale: 0.95 }}
               className="font-black w-full sm:w-auto px-8 py-4 bg-transparent border border-zinc-800 text-white rounded-xl transition-colors cursor-pointer"
             >
-              Vezi Serviciile
+              Vezi serviciile
             </motion.button>
           </Link>
         </motion.div>
@@ -179,13 +179,13 @@ function ServicesTeaser() {
             <div className="space-y-4 mb-10">
               {['Execuție conform normativelor I7', 'Componente premium (Schneider, Eaton, ABB)', 'Garanție extinsă pentru manoperă'].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-zinc-700 dark:text-zinc-300 font-bold">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink: 0" />
                   <span>{item}</span>
                 </div>
               ))}
             </div>
 
-            <Link href="/servicii" className="font-black inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:gap-4 transition-all group">
+            <Link href="/servicii" className="font-black inline-flex items-center gap-2 text-blue-600 text-lg hover:gap-4 transition-all group">
               Vezi toate detaliile <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeIn>
@@ -194,7 +194,7 @@ function ServicesTeaser() {
             <FadeIn delay={0.2} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
 
-              <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+              <div className="w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Image
                   src="/images/1hero.png"
                   alt="Macro foto cablaj tablou electric"
@@ -204,7 +204,7 @@ function ServicesTeaser() {
                 />
               </div>
 
-              <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-blue-600 transition-colors relative z-10">Panel Builder</h3>
+              <h3 className="font-orbitron text-2xl font-bold mb-3 dark:text-white group-hover:text-blue-600 transition-colors relative z-10">Panel builder</h3>
               <p className="font-bold text-zinc-500 leading-relaxed relative z-10">
                 Producție de tablouri electrice în atelier propriu. Automatizări industriale, distribuție forță și comandă.
               </p>
@@ -213,7 +213,7 @@ function ServicesTeaser() {
             <FadeIn delay={0.4} className="group p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-shadow duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
 
-              <div className="relative w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+              <div className="w-14 h-14 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 <Image
                   src="/images/2hero.png"
                   alt="Instalație electrică curată pe șantier"
