@@ -9,21 +9,21 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
-    title: "Tablou Automatizare Hală",
+    title: "Tablou automatizare hală",
     category: "Industrial",
     desc: "Proiectare și execuție tablou comandă pompe 3x400V cu convertizoare de frecvență.",
     image: "/images/1port.png"
   },
   {
     id: 2,
-    title: "Instalație Vilă P+1",
+    title: "Instalație vila P+1",
     category: "Rezidențial",
     desc: "Refacere completă instalație electrică, montaj aparataj modular și tablou general.",
     image: "/images/2port.png"
   },
   {
     id: 3,
-    title: "Tablou General Distribuție",
+    title: "Tablou general distribuție",
     category: "Panel Builder",
     desc: "Tablou 250A pentru clădire de birouri, echipat cu analizor de rețea și descărcătoare.",
     image: "/images/3port.png"
@@ -44,7 +44,7 @@ export default function PortofoliuPage() {
 
         <div className="text-center mb-16">
           <h1 className="font-orbitron font-black text-4xl md:text-6xl text-zinc-900 dark:text-white mb-6">
-            Portofoliu Lucrari
+            Portofoliu lucrari
           </h1>
           <p className="font-inter font-bold text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             Calitatea execuției este cartea noastră de vizită. <br />

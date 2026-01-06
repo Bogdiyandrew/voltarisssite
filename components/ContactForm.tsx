@@ -44,7 +44,7 @@ export default function ContactForm() {
         className="w-full h-full flex flex-col items-center justify-center text-center p-8 bg-green-500/10 border border-green-500/20 rounded-2xl"
       >
         <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
-        <h3 className="text-2xl font-bold text-white mb-2">Mesaj Trimis!</h3>
+        <h3 className="text-2xl font-bold text-white mb-2">Mesaj trimis!</h3>
         <p className="text-zinc-400">Te vom contacta în cel mai scurt timp.</p>
         <button onClick={() => setStatus("idle")} className="mt-6 text-sm text-zinc-500 underline hover:text-zinc-300 cursor-pointer">
           Trimite alt mesaj
@@ -112,7 +112,7 @@ export default function ContactForm() {
       >
         {status === "loading" ? "Se trimite..." : (
           <>
-            Trimite Cererea <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Trimite cererea <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </>
         )}
       </button>

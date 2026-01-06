@@ -10,7 +10,7 @@ export default function ServiciiPage() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="font-orbitron font-black text-4xl md:text-6xl text-zinc-900 dark:text-white mb-6">
-            Solutii Electrice Complete
+            Solutii electrice complete
           </h1>
           <p className="font-inter font-bold text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             De la producția de tablouri electrice automatizate până la instalații civile sigure.
@@ -23,7 +23,7 @@ export default function ServiciiPage() {
             <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-xl text-blue-600 dark:text-blue-400">
               <Factory className="w-8 h-8" />
             </div>
-            <h2 className="font-orbitron font-black text-3xl text-zinc-900 dark:text-white">Producție Tablouri Electrice (Panel Builder)</h2>
+            <h2 className="font-orbitron font-black text-3xl text-zinc-900 dark:text-white">Producție tablouri electrice</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -53,7 +53,7 @@ export default function ServiciiPage() {
             <div className="p-3 bg-orange-100 dark:bg-orange-900/20 rounded-xl text-orange-600 dark:text-orange-400">
               <Home className="w-8 h-8" />
             </div>
-            <h2 className="font-orbitron font-black text-3xl text-zinc-900 dark:text-white">Instalații Electrice (Arges)</h2>
+            <h2 className="font-orbitron font-black text-3xl text-zinc-900 dark:text-white">Instalatii electrice</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">

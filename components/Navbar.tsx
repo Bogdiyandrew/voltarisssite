@@ -109,10 +109,10 @@ export default function Navbar() {
               href="tel:0723563640"
               className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full text-sm font-black font-inter overflow-hidden transition-transform hover:scale-105 active:scale-95"
             >
-              <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
+              <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-linear-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
 
               <Phone className="w-4 h-4 relative z-10 group-hover:rotate-12 transition-transform" />
-              <span className="relative z-10">Sună Acum</span>
+              <span className="relative z-10">Sună acum</span>
             </a>
           </div>
 
